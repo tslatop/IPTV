@@ -1,4 +1,4 @@
-﻿#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="default" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"
+﻿#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml" catchup="append" catchup-source="?starttime={utc:YmdTHMS}&endtime={utcend:YmdTHMS}"
 
 #EXTINF:-1,tvg-id="CCTV4K" tvg-name="CCTV4K" tvg-logo="https://epg.112114.xyz/logo/CCTV4K.png" group-title="央视",CCTV4K
 http://ainm.cc/a/play/php/cctv4k.php?id=4khd
