@@ -9,9 +9,9 @@ http://150.138.8.143/00/SNM/CHANNEL00000311/index.m3u8
 http://150.138.8.143/00/SNM/CHANNEL00000317/index.m3u8
 #EXTINF:-1,tvg-id="CCTV3" tvg-name="CCTV3" tvg-rec="7" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/CCTV3.png" group-title="综艺",CCTV3
 http://150.138.8.143/00/SNM/CHANNEL00000359/index.m3u8
-#EXTINF:-1,tvg-id="CCTV4" tvg-name="CCTV4" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/CCTV4.png" group-title="国际",CCTV4
+#EXTINF:-1,tvg-id="CCTV4" tvg-name="CCTV4" timeshift="15" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/CCTV4.png" group-title="国际",CCTV4
 http://150.138.8.143/00/SNM/CHANNEL00000320/index.m3u8
-#EXTINF:-1,tvg-id="CCTV5" tvg-name="CCTV5" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/CCTV5.png" group-title="体育",CCTV5
+#EXTINF:-1,tvg-id="CCTV5" tvg-name="CCTV5" timeshift="15" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/CCTV5.png" group-title="体育",CCTV5
 http://150.138.8.143/00/SNM/CHANNEL00000360/index.m3u8
 #EXTINF:-1,tvg-id="CCTV6" tvg-name="CCTV6" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/CCTV6.png" group-title="电影",CCTV6
 http://150.138.8.143/00/SNM/CHANNEL00000361/index.m3u8
