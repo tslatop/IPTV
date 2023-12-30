@@ -117,9 +117,17 @@ http://150.138.8.143/00/SNM/CHANNEL00000661/index.m3u8
 #EXTINF:-1,tvg-id="游戏风云" tvg-name="游戏风云" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/游戏风云.png" group-title="游戏",游戏风云
 http://150.138.8.143/00/SNM/CHANNEL00002024/index.m3u8
 
+#EXTINF:-1,tvg-id="烟台新闻" tvg-name="烟台新闻" group-title="本地",烟台
+http://150.138.8.143/00/SNM/CHANNEL00000280/index.m3u8
+#EXTINF:-1,tvg-id="烟台公共" tvg-name="烟台公共" group-title="本地",烟台
+http://150.138.8.143/00/SNM/CHANNEL00000281/index.m3u8
+#EXTINF:-1,tvg-id="烟台经济科技" tvg-name="烟台经济科技" group-title="本地",烟台
+http://150.138.8.143/00/SNM/CHANNEL00000282/index.m3u8
+#EXTINF:-1,tvg-id="烟台影视" tvg-name="烟台影视" group-title="本地",烟台
+http://150.138.8.143/00/SNM/CHANNEL00000283/index.m3u8
+
 #EXTINF:-1,tvg-id="生活时尚" tvg-name="生活时尚" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/生活时尚.png" group-title="生活",生活时尚
 http://150.138.8.143/00/SNM/CHANNEL00002019/index.m3u8
-
 #EXTINF:-1,tvg-id="都市剧场" tvg-name="都市剧场" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/都市剧场.png" group-title="电视剧",都市剧场
 http://150.138.8.143/00/SNM/CHANNEL00002022/index.m3u8
 #EXTINF:-1,tvg-id="精彩影视" tvg-name="精彩影视" tvg-logo="https://raw.githubusercontent.com/sumingyd/Telecom-Shandong-IPTV-List/main/img/精彩影视.png" group-title="电影",精彩影视
