@@ -1,4 +1,4 @@
-﻿#EXTM3U x-tvg-url="https://m3u.cloudns.org/epg.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"
+﻿#EXTM3U x-tvg-url="https://epg.112114.xyz/pp.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"
 
 #EXTINF:-1,tvg-id="CCTV1" tvg-name="CCTV1" tvg-logo="https://tun.cloudns.org/img/CCTV1.png" group-title="央视",CCTV-1综合
 http://221.0.78.198:1681/hls/10201/index.m3u8
