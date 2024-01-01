@@ -1,8 +1,0 @@
-<LINK xmlns:xlink = "http://www.w3.org/1999/xlink"
-      xlink:type = "extended"
-      xlink:href = "https://epg.112114.xyz/pp.xml.gz"
-      xlink:title = "hello world"
-      xlink:show = "refresh"
-      xlink:actuate = "onRequest">
-hello world
-</LINK>
