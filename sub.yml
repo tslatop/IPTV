@@ -4,13 +4,12 @@ allow-lan: true
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-  - {name: US100, type: ss, server: 100.90.80.101, port: 9009, cipher: aes-256-gcm, password: abcde12345, udp: false}       #KR101 => us
-  - {name: US200, type: ss, server: 100.90.80.102, port: 9009, cipher: aes-256-gcm, password: abcde12345, udp: false}       #KR102 => us
-  - {name: KR100, type: ss, server: 100.90.80.101, port: 9008, cipher: chacha20-ietf-poly1305, password: abcde12345, udp: true}       #KR101 => KR103
-  - {name: KR200, type: ss, server: 100.90.80.102, port: 9008, cipher: chacha20-ietf-poly1305, password: abcde12345, udp: true}       #KR102 => KR103
+  - {name: LB100, type: ss, server: 100.80.20.240, port: 9007, cipher: aes-256-gcm, password: Kvxj2iXzXD, udp: true, plugin: shadow-tls, plugin-opts: {host: "www.apple.com", password: "0JrifQCxuX", version: 3}}
+  - {name: KR100, type: ss, server: 100.80.20.240, port: 9008, cipher: chacha20-ietf-poly1305, password: Kvxj2iXzXD, udp: true}
+  - {name: US200, type: ss, server: 100.80.20.240, port: 9009, cipher: aes-256-gcm, password: 0JrifQCxuX, udp: true}
 proxy-groups:
-  - { name: 高速节点, type: select, proxies: [KR100, KR200, US100, US200] }
-#  - { name: 自动选择, type: url-test, proxies: [KR100, KR200, US100, US200], url: 'http://www.apple.com', interval: 3600 }
+  - {name: 高速节点, type: select, proxies: [备用节点, LB100, KR100, US200]}
+  - {name: 备用节点, type: url-test, proxies: [KR101, KR201, US101, US201], url: 'http://www.apple.com', interval: 3600}
 rules:
   - GEOSITE,private,DIRECT
   - GEOSITE,youtube,高速节点
