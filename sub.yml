@@ -1,0 +1,32 @@
+mode: Rule
+mixed-port: 7890
+allow-lan: true
+log-level: info
+external-controller: 127.0.0.1:9090
+proxies:
+  - {name: US100, type: ss, server: 100.90.80.101, port: 9009, cipher: aes-256-gcm, password: abcde12345, udp: false}       #KR101 => us
+  - {name: US200, type: ss, server: 100.90.80.102, port: 9009, cipher: aes-256-gcm, password: abcde12345, udp: false}       #KR102 => us
+  - {name: KR100, type: ss, server: 100.90.80.101, port: 9008, cipher: chacha20-ietf-poly1305, password: abcde12345, udp: true}       #KR101 => KR103
+  - {name: KR200, type: ss, server: 100.90.80.102, port: 9008, cipher: chacha20-ietf-poly1305, password: abcde12345, udp: true}       #KR102 => KR103
+proxy-groups:
+  - { name: 高速节点, type: select, proxies: [KR100, KR200, US100, US200] }
+#  - { name: 自动选择, type: url-test, proxies: [KR100, KR200, US100, US200], url: 'http://www.apple.com', interval: 3600 }
+rules:
+  - GEOSITE,private,DIRECT
+  - GEOSITE,youtube,高速节点
+  - GEOSITE,google,高速节点
+  - GEOSITE,twitter,高速节点
+  - GEOSITE,pixiv,高速节点
+  - GEOSITE,category-scholar-!cn,高速节点
+  - GEOSITE,biliintl,高速节点
+  - GEOSITE,onedrive,DIRECT
+  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,apple-cn,DIRECT
+  - GEOSITE,steam@cn,DIRECT
+  - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,geolocation-!cn,高速节点
+  - GEOSITE,cn,DIRECT
+  - GEOIP,private,DIRECT,no-resolve
+  - GEOIP,telegram,高速节点
+  - GEOIP,CN,DIRECT
+  - MATCH,高速节点
