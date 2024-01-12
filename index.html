@@ -1,80 +1,524 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
-    <title>Hello World</title>
-    <style type="text/css" media="screen">
-      body {
-        background-color: #f1f1f1;
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-
-      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
-
-      a { color: #4183c4; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-
-      h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
-      p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
-
-      ul { list-style: none; margin: 25px 0; padding: 0; }
-      li { display: table-cell; font-weight: bold; width: 1%; }
-
-      .logo { display: inline-block; margin-top: 35px; }
-      .logo-img-2x { display: none; }
-      @media
-      only screen and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (   min--moz-device-pixel-ratio: 2),
-      only screen and (     -o-min-device-pixel-ratio: 2/1),
-      only screen and (        min-device-pixel-ratio: 2),
-      only screen and (                min-resolution: 192dpi),
-      only screen and (                min-resolution: 2dppx) {
-        .logo-img-1x { display: none; }
-        .logo-img-2x { display: inline-block; }
-      }
-
-      #suggestions {
-        margin-top: 35px;
-        color: #ccc;
-      }
-      #suggestions a {
-        color: #666666;
-        font-weight: 200;
-        font-size: 14px;
-        margin: 0 10px;
-      }
-
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sedulous</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,200,100,300,500,600,800,900' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,700italic,900,400italic,300italic' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.sticky.js"></script>
+  <script>
+    $(window).load(function(){
+      $("#menu").sticky({ topSpacing: 0 });
+    });
+  </script>
   </head>
   <body>
-
-    <div class="container">
-
-      <h1>Hello World</h1>
-      <p><strong>There isn't a GitHub Pages site here.</strong></p>
-
-      <p>
-        If you're trying to publish one,
-        <a href="https://help.github.com/pages/">read the full documentation</a>
-        to learn how to set up <strong>GitHub Pages</strong>
-        for your repository, organization, or user account.
-      </p>
-
-      <div id="suggestions">
-        <a href="/list/Telecom-Shandong.m3u">IPTV V4</a> &mdash;
-        <a href="/list/Shanghai-Mobile-v6.m3u">IPTV V6</a>
+<div class="container-fluid banner text-center" id="banner"> 
+    <div class="row">
+    <div class="col-md-12 line">
+        <div class="tablebox">
+        <div class="banner-text" id="bannertext">
+            <h1 class="hostyle" id="heads">Sedulous</h1>
+            <p class="pstyle">We are Creative</p>
+            <a href="#features" class="page-scroll arrow"><i class="fa fa-angle-down"></i></a> 
+          </div>
       </div>
-
-      <a href="https://github.com/tslatop/IPTV" class="logo logo-img-1x">
-        <img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII=">
-      </a>
-
-      <a href="https://github.com/tslatop/IPTV" class="logo logo-img-2x">
-        <img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM1QkUxRUI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM1QkUxRkI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdGQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjgwQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hfPRaQAAB6lJREFUeNrsW2mM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">
-      </a>
+      </div>
+  </div>
+  </div>
+<div class="navbar menubar" id="menu">
+    <div class="container">
+    <div class="navbar-header"> 
+    	<button type="button" class="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar">
+			<span class="glyphicon glyphicon-align-justify"></span>
+		 </button>
+    <a class="navbar-brand logo" href="#">Sedulous</a> 
     </div>
-  </body>
+    <div>
+    	<nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
+        <ul class="nav navbar-nav navbar-right navstyle">
+        <li><a href="#banner" class="page-scroll active">Home</a></li>
+        <li><a href="#features" class="page-scroll">Features</a></li>
+        <li><a href="#gallery" class="page-scroll">Gallery</a></li>
+        <li><a href="#about" class="page-scroll">About</a></li>
+        <li><a href="#testimonials" class="page-scroll">Testimonials</a></li>
+        <li><a href="#contact" class="page-scroll">Contact</a></li>
+      </ul>
+      </nav>
+      </div>
+  </div>
+  </div>
+<div class="features" id="features">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alldesc">
+            <div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            <p class="all-td">What's Coming New</p>
+            <h2>Features</h2>
+          </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum. Lorem ipsum dolor sit amet.</p>
+          </div>
+          </div>
+      </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 featurebox">
+        <div class="feature-icons"> <img src="images/idea.png"/></div>
+        <div class="fh-desc">
+            <h3>Creative Ideas</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum.</p>
+          </div>
+      </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 featurebox">
+        <div class="feature-icons"> <img src="images/time.png"/> </div>
+        <div class="fh-desc">
+            <h3>Save Time</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum.</p>
+          </div>
+      </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 featurebox">
+        <div class="feature-icons"> <img src="images/money.png"/> </div>
+        <div class="fh-desc">
+            <h3>Save Money</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum.</p>
+          </div>
+      </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 featurebox">
+        <div class="feature-icons"> <img src="images/support.png"/> </div>
+        <div class="fh-desc">
+            <h3>Great Support</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum.</p>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+<div class="gallery" id="gallery">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alldesc">
+            <div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            <p class="all-td">Our preciously done works</p>
+            <h2>Gallery</h2>
+          </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum. Lorem ipsum dolor sit amet.</p>
+          </div>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="sorting pull-left">
+            <div class="filter pull-left filimg" data-filter="all">Show All</div>
+            <div class="filter pull-left filimg" data-filter=".category-1">Beautiful</div>
+            <div class="filter pull-left filimg" data-filter=".category-2">Amazing</div>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="galleryimg" id="galleryimg">
+            <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="1">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Glowing <span>Sun<span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="2">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash009.jpg" alt="img13"/>
+						<figcaption>
+							<h2>High <span>Sky</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="3">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash0010.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Darkest <span>Rain</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="4">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash002.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Beautiful <span>Heart</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="5">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash006.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Cute <span>Imagine</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="6">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Glowing <span>Sun</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="7">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash0010.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Darkest <span>Rain</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="8">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash002.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Beautiful <span>Heart</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="9">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Glowing <span>Sun</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  </div>
+<div class="notes">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-9 col-sm-10 col-12">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante.</p>
+      </div>
+        <div class="col-md-3 col-sm-2 col-xs-12 text-center">
+        <button>Click Me</button>
+      </div>
+      </div>
+  </div>
+  </div>
+  <div class="copyrights">Collect from <a href="https://www.webmoban.net" >手机网站模板</a></div>
+  
+<div class="about" id="about">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alldesc">
+            <div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            <p class="all-td">What You Want To Know</p>
+            <h2>About Us</h2>
+          </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum. Lorem ipsum dolor sit amet.</p>
+          </div>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="progresscount">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-6 block">
+                <div class="counter-item">
+                <h5>Our Clients</h5>
+                <div class="timer" data-from="0" data-to="55" data-speed="5000" data-refresh-interval="50"></div>
+              </div>
+              </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="counter-item">
+                <h5>Projects completed</h5>
+                <div class="timer" data-from="0" data-to="88" data-speed="5000" data-refresh-interval="50"></div>
+              </div>
+              </div>
+          </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="progresstitle">
+                <h5>HTML5</h5>
+                <div class="progress progress-style">
+                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"> 80% </div>
+              </div>
+              </div>
+            <div class="progresstitle">
+                <h5>CSS3</h5>
+                <div class="progress progress-style">
+                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width:74%"> 74% </div>
+              </div>
+              </div>
+            <div class="progresstitle">
+                <h5>JQuery</h5>
+                <div class="progress progress-style">
+                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:65%"> 65% </div>
+              </div>
+              </div>
+          </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+<div class="testimonials" id="testimonials">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-12 col-sm-12 col-xs-12">
+        		<div class="alldesc">
+            		<div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            			<p class="all-td">What Client Say About Us</p>
+            			<h2>Testimonials</h2>
+          			</div>
+            		<div class="col-md-6 col-sm-6 col-xs-12">
+            
+          			</div>
+          		</div>
+      		</div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            	<div class="quotes">
+                	<blockquote>
+                    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus bibendum augue sodales tellus molestie eleifend. Morbi felis sem, fermentum quis tincidunt eu, sollicitudin ut metus</p>
+                        <p class="name">Yogesh Singh (Gujarat, India)</p>
+                    </blockquote>
+                    <blockquote>
+                    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus bibendum augue sodales tellus molestie eleifend.</p>
+                        <p class="name">Michal Jordan (New York, USA)</p>
+                    </blockquote>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
+<div class="subscribe-social"> 
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-8 col-sm-12 col-xs-12">
+            	<div class="subscibe">
+                	 <form role="form">
+                     	<div class="col-md-8 col-sm-10 col-xs-12">
+  						<div class="form-group">
+    						<input type="email" class="form-control" id="email" placeholder="Enter Your Email address">
+  						</div>
+                        </div>
+                        <div class="col-md-4 col-sm-2 col-xs-12 centertext">
+  							<button type="submit" class="btn btn-or">Subscibe</button>
+                        </div>
+						</form>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 text-center">
+            	<ul class="social">
+                	<li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="address" id="contact">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-12 col-sm-12 col-xs-12">
+        		<div class="alldesc">
+            		<div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            			<p class="all-td">How To Get In Touch</p>
+            			<h2>Contact</h2>
+          			</div>
+            		<div class="col-md-6 col-sm-6 col-xs-12 info centertext">
+            			<p>10/B/195 Barcolomy Real Estate</p>
+                        <p>Keep Walking, America</p>
+                        <p>Tel No : +12345678</p>
+                        <p>Email : Yogeshpix@gmail.com</p>
+          			</div>
+          		</div>
+      		</div>        
+        </div>
+    </div>
+</div>
+<footer class="foot"> 
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-12 col-sm-12 col-xs-12">
+            	<h4 class="foot-logo">Scedulous</h4>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12 text-center">
+            	<p class="foot-text">Copyright &copy; 2015.Company name All rights reserved.More Templates</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/typed.js" type="text/javascript"></script> 
+<script src="js/jquery.mixitup.js" type="text/javascript"></script> 
+<script type="text/javascript" src="js/jquery.countTo.js"></script> 
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script> 
+<script type="text/javascript" src="js/jquery.quovolver.js"></script>
+<script>
+$(function(){
+    var windowH = $(window).height();
+    var bannerH = $('#banner').height();
+    if(windowH > bannerH) {                            
+        $('#banner').css({'height':($(window).height() - 68)+'px'});
+		$('#bannertext').css({'height':($(window).height() - 68)+'px'});
+    }                                                                               
+    $(window).resize(function(){
+        var windowH = $(window).height();
+        var bannerH = $('#banner').height();
+        var differenceH = windowH - bannerH;
+        var newH = bannerH + differenceH;
+        var truecontentH = $('#bannertext').height();
+        if(windowH < truecontentH) {
+            $('#banner').css({'height': (newH - 68)+'px'});
+			$('#bannertext').css({'height': (newH - 68)+'px'});
+        }
+		if(windowH > truecontentH) {
+            $('#banner').css({'height': (newH - 68)+'px'});
+			$('#bannertext').css({'height': (newH - 68)+'px'});
+        }
+
+    })          
+});
+
+
+	
+	
+	
+	$(function(){
+  $('#galleryimg').mixItUp();
+});
+	/*$('.timer').each(count);*/
+	jQuery(function ($) {
+      // custom formatting example
+      $('.timer').data('countToOptions', {
+        formatter: function (value, options) {
+          return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+      });
+ 
+      // start all the timers
+      $('#gallery').waypoint(function() {
+    $('.timer').each(count);
+	});
+ 
+      function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+      }
+    });
+	
+	
+	 $('.quotes').quovolver({
+      equalHeight   : true
+    });
+	
+	
+	</script>
+<script>
+
+	$(document).ready(function () {
+
+		$(document).on("scroll", onScroll);
+
+ 
+
+		$('a[href^="#"]').on('click', function (e) {
+
+			e.preventDefault();
+
+			$(document).off("scroll");
+
+ 
+
+			$('a').each(function () {
+
+				$(this).removeClass('active');
+
+			})
+
+			$(this).addClass('active');
+
+ 
+
+			var target = this.hash;
+
+			$target = $(target);
+
+			$('html, body').stop().animate({
+
+				'scrollTop': $target.offset().top
+
+			}, 500, 'swing', function () {
+
+				window.location.hash = target;
+
+				$(document).on("scroll", onScroll);
+
+			});
+
+		});
+
+	});
+
+ 
+
+	function onScroll(event){
+
+		var scrollPosition = $(document).scrollTop();
+
+		$('.nav li a').each(function () {
+
+			var currentLink = $(this);
+
+			var refElement = $(currentLink.attr("href"));
+
+			if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
+
+				$('.nav li a').removeClass("active");
+
+				currentLink.addClass("active");
+
+			}
+
+			else{
+
+				currentLink.removeClass("active");
+
+			}
+
+		});
+
+	}
+
+	</script>
+</body>
 </html>
