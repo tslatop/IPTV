@@ -3,7 +3,7 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sedulous</title>
+  <title>GitCloud</title>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
@@ -25,7 +25,7 @@
     	<button type="button" class="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar">
 			<span class="glyphicon glyphicon-align-justify"></span>
 		 </button>
-    <a class="navbar-brand logo" href="#">Sedulous</a> 
+    <a class="navbar-brand logo" href="#">GitCloud</a> 
     </div>
     <div>
     	<nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
@@ -94,7 +94,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante.</p>
       </div>
         <div class="col-md-3 col-sm-2 col-xs-12 text-center">
-        <button>GitHub</button>
+        <button onclick="window.location.href='https://github.com/tslatop'" type="button">GitHub</button>
       </div>
       </div>
   </div>
@@ -129,27 +129,18 @@ $(function(){
             $('#banner').css({'height': (newH - 68)+'px'});
 			$('#bannertext').css({'height': (newH - 68)+'px'});
         }
-
     })          
 });
 
-
-	
-	
-	
 	$(function(){
   $('#galleryimg').mixItUp();
 });
-	/*$('.timer').each(count);*/
 	jQuery(function ($) {
-      // custom formatting example
       $('.timer').data('countToOptions', {
         formatter: function (value, options) {
           return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
         }
       });
- 
-      // start all the timers
       $('#gallery').waypoint(function() {
     $('.timer').each(count);
 	});
@@ -160,90 +151,46 @@ $(function(){
         $this.countTo(options);
       }
     });
-	
-	
 	 $('.quotes').quovolver({
       equalHeight   : true
     });
-	
-	
 	</script>
 <script>
 
 	$(document).ready(function () {
-
 		$(document).on("scroll", onScroll);
-
- 
-
 		$('a[href^="#"]').on('click', function (e) {
-
 			e.preventDefault();
-
 			$(document).off("scroll");
-
- 
-
 			$('a').each(function () {
-
 				$(this).removeClass('active');
-
 			})
-
 			$(this).addClass('active');
-
- 
-
 			var target = this.hash;
-
 			$target = $(target);
-
 			$('html, body').stop().animate({
-
 				'scrollTop': $target.offset().top
-
 			}, 500, 'swing', function () {
-
 				window.location.hash = target;
-
 				$(document).on("scroll", onScroll);
-
 			});
-
 		});
-
 	});
 
- 
-
 	function onScroll(event){
-
 		var scrollPosition = $(document).scrollTop();
-
 		$('.nav li a').each(function () {
-
 			var currentLink = $(this);
-
 			var refElement = $(currentLink.attr("href"));
-
 			if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
-
 				$('.nav li a').removeClass("active");
-
 				currentLink.addClass("active");
-
 			}
-
 			else{
-
 				currentLink.removeClass("active");
-
 			}
-
 		});
-
 	}
-
 	</script>
 </body>
 </html>
